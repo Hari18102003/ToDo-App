@@ -1,0 +1,21 @@
+<%- include("header.ejs") %>
+
+<div class="today">
+    <% days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %>
+    <% month = ["January","February","March","April","May","June","July","August","September","October","November","December"] %>
+    <%= days[new Date().getDay()]  %>, <%= month[new Date().getMonth()]  %> <%= new Date().getDate() %>
+</div>
+<ul class="items">
+
+    <% newitems.forEach(i=>{ %>
+        <form action="/tdelete" method="post" class="added">
+            <li> <input type="checkbox" name="ch" class="check" value="<%= i._id %>" onchange="this.form.submit()"> <p class="inp"><%= i.name %></p> </li>
+        </form>
+    <%})%>
+    <form action="/" method="post" class="new">
+        <input type="text" name="newItem" autocomplete="off" placeholder="New Item" class="inpit">
+        <button type="submit">+</button>
+    </form>
+</ul>
+
+<%- include("footer.ejs") %>

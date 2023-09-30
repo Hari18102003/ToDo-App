@@ -1,0 +1,17 @@
+<%- include("header.ejs") %>
+
+<div class="today">Work</div>
+
+<ul class="items">
+    <% newItems.forEach(i=>{ %>
+        <form action="/wdelete" method="post" class="added">
+            <li> <input type="checkbox" name="ch" class="check" value="<%= i._id %>" onchange="this.form.submit()"> <p class="inp"><%= i.name %></p> </li>
+        </form>
+    <%})%>
+    <form action="/work" method="post" class="new">
+        <input type="text" name="newItem" autocomplete="off" placeholder="New Item" class="inpit">
+        <button type="submit">+</button>
+    </form>
+</ul>
+
+<%- include("footer.ejs") %>

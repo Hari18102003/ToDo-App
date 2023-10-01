@@ -35,7 +35,7 @@ const item = mongoose.model("Item",itemSchema);
 const work = mongoose.model("Work",workSchema);
 
 async function main(){
-    mongoose.connect("mongodb://127.0.0.1:27017/todoDB");
+    mongoose.connect("mongodb+srv://admin-hari:hari-18@cluster0.9ykm1tc.mongodb.net/todoDB");
     
     app.post("/",async function(req,res){
         let n = req.body.newItem;

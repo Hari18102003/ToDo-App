@@ -103,6 +103,7 @@ button{
     font-size: 1.5rem;
 }
 
-.strike{
+input:checked+p {
     text-decoration: line-through;
+    text-decoration-color: #A683E3;
 }

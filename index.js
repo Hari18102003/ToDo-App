@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 let items =[];
@@ -35,7 +35,7 @@ const item = mongoose.model("Item",itemSchema);
 const work = mongoose.model("Work",workSchema);
 
 async function main(){
-    mongoose.connect("mongodb+srv://admin-hari:hari-18@cluster0.9ykm1tc.mongodb.net/todoDB");
+    mongoose.connect(process.env.MONGO_URI);
     
     app.post("/",async function(req,res){
         let n = req.body.newItem;
